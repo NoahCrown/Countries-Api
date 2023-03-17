@@ -1,7 +1,11 @@
+import { useCountries } from "../context/Context"
 
-const Pagination = ({paginate, contentPerPage, totalContents }) => {
+
+const Pagination = () => {
+    const {contentPerPage, content, changePage } = useCountries()
+
     let pageNumbers = []
-    for(let i = 1; i <= Math.ceil(totalContents / contentPerPage); i++){
+    for(let i = 1; i <= Math.ceil(content.length / contentPerPage); i++){
         pageNumbers.push(i)
     }
     
@@ -13,7 +17,7 @@ const Pagination = ({paginate, contentPerPage, totalContents }) => {
                     key={val} 
                     className="page-number" 
                     href="!#"
-                    onClick={() => paginate(val)}
+                    onClick={() => changePage(val)}
                     >
                         {val}
                     </a>

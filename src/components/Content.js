@@ -1,5 +1,9 @@
+import { useCountries } from "../context/Context"
 
-const Content = ({content, loading}) => {
+
+const Content = () => {
+    const {loading, contentToShow} = useCountries()
+
     if (loading ){
         return (
             <div className="loading-container">
@@ -11,7 +15,7 @@ const Content = ({content, loading}) => {
     return (
         <div className="contents-container">
             {
-            content.map(con => {
+            contentToShow.map(con => {
                 return (
                     <div key={con.name} className="content-container">
                         
@@ -23,20 +27,6 @@ const Content = ({content, loading}) => {
                 )
             })
             } 
-            
-
-
-            {content.map(con => {
-                return (
-                    <div key={con.name} className="content-container">
-                        
-                        <h1 className="country-name">{con.name}</h1>
-                        <p className="country-region" >{con.region}</p>
-                        <p className="country-area">{con.area}</p>
-
-                    </div>
-                )
-            })}
 
         </div>
     )
