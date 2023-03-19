@@ -2,10 +2,10 @@ import { useCountries } from "../context/Context"
 
 
 const Pagination = () => {
-    const {contentPerPage, content, changePage } = useCountries()
+    const {contentPerPage, filteredCountries, changePage } = useCountries()
 
     let pageNumbers = []
-    for(let i = 1; i <= Math.ceil(content.length / contentPerPage); i++){
+    for(let i = 1; i <= Math.ceil(filteredCountries.length / contentPerPage); i++){
         pageNumbers.push(i)
     }
     

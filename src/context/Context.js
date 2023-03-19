@@ -85,7 +85,8 @@ export const CountriesProvider = ({children}) => {
     filterByRegion,
     handleSort,handleFilterByArea, handleFilterByRegion,
     contentToShow,
-    changePage
+    changePage,
+    filteredCountries
 }
     return(
         <CountriesContext.Provider value={contextValues}>
